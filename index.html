@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<nav>
+    <div class="logo">Heeral<span>Sheth</span></div>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skill">Skills</a></li>
+        <li><a href="#proj">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<section id="hero">
+    <div class="hero-container">
+        <div class="container">
+            <img src="profile.png" alt="Heeral Sheth">
+
+<!--            <h3> my name is</h3>-->
+            <h2>Heeral <span>Sheth</span></h2>
+<!--            <h2>I'm a <span>Data Analyst</span> passionate about finding stories in data.</h2>-->
+<!--&lt;!&ndash;            <a href="#about" class="btn-get-started scrollto">Learn More</a>&ndash;&gt;-->
+        </div>
+        <h1>I am a <span id="typewriter"></span></h1>
+        <p>Data-Driven Developer specializing in building scalable Spring Boot applications and 
+         transforming complex datasets into actionable insights
+        </p>
+        <a href="Heeral_Sheth_Resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+</section>
+<section  id="skill">
+    <h2 class="section-title">Technical <span>Toolkit</span></h2>
+
+    <div class="toolkit-container">
+        <div class="toolkit-card">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>BI & Visualization</h3>
+            <p><strong>Tools:</strong> Power BI, Power Query, DAX</p>
+            <p>Specializing in transforming raw data into interactive stakeholder dashboards with optimized DAX measures.</p>
+        </div>
+
+        <div class="toolkit-card">
+            <div class="card-icon"><i class="fas fa-cloud"></i></div>
+            <h3>Cloud Engineering</h3>
+            <p><strong>Stack:</strong> ADF, Azure Synapse, Azure Fabric, Databricks, Data Lake</p>
+            <p>Building scalable ETL pipelines and managing big data architecture within the Azure ecosystem.</p>
+        </div>
+
+        <div class="toolkit-card">
+            <div class="card-icon"><i class="fas fa-code"></i></div>
+            <h3>Dev & Automation</h3>
+            <p><strong>Apps:</strong> Power Apps, Power Automate</p>
+            <p><strong>Code:</strong> Java,Python, SpringBoot, HTML, CSS, Git</p>
+            <p>Developing full-stack applications and automating workflows to increase operational efficiency.</p>
+        </div>
+
+        <div class="toolkit-card">
+            <div class="card-icon"><i class="fas fa-database"></i></div>
+            <h3>Data Management</h3>
+            <p><strong>Core:</strong> SQL, Postman REST API</p>
+            <p>Expert in advanced SQL joining, data partitioning, and testing robust API integrations.</p>
+        </div>
+        <div class="toolkit-card">
+            <div class="card-icon">
+                <i class="fas fa-hospital-user"></i>
+            </div>
+            <h3>Healthcare Systems</h3>
+            <p><strong>Modules:</strong> Epic (Clarity & Caboodle)</p>
+            <p>Expertise in extracting and analyzing clinical data from Epic modules, ensuring seamless data flow between EHR systems and analytical platforms.</p>
+        </div>
+
+        <div class="toolkit-card">
+            <div class="card-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Compliance & Security</h3>
+            <p><strong>Standards:</strong> HIPAA, HITRUST</p>
+            <p>Dedicated to maintaining data integrity and patient privacy through strict adherence to HIPAA regulations and secure data handling protocols.</p>
+        </div>
+    </div>
+</section>s
+    <section  id="contact">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p class="contact-desc">
+            I really appreciate you taking the time to look through my journey. If you’re
+            looking for a collaborator, have a technical question, or are just looking to
+            expand your professional circle, please don't hesitate to get in touch. Looking
+            forward to hearing from you! </p>
+        <a href="heersheth@gmail.com" class="btn">Say Hello</a>
+    </section>
+<!--    <section  id="contact" class="contact-container-selector">-->
+<!--        <h2>Get In Touch</h2>-->
+<!--        <p>I really appreciate you taking the time...</p>-->
+
+<!--        <a href="mailto:your@email.com" class="say-hello-button-class">Say Hello</a>-->
+<!--    </section>-->
+    <footer>
+        <div class="footer-content">
+            <p>Created By <span>Heeral Sheth</span> | <i class="far fa-copyright"></i> 2026 All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <a href="#home" class="scroll-up">
+            <i class="fas fa-angle-up"></i>
+        </a>
+    </footer>
+<script src="JavaScript.js"></script>
+    <script>
+        // 1. Disable Right-Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 2. Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U (Common Inspection Shortcuts)
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) { // F12
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // View Source
+                return false;
+            }
+        };
+
+    const textElement = document.getElementById('typer');
+    const roles = ["Healthcare Professional.", "Java Developer.", "Data Analyst.", "Cloud Engineer."];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+    textElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+    } else {
+    textElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+    typeSpeed = 2000; // Pause at the end
+    isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    typeSpeed = 500;
+    }
+
+    setTimeout(type, typeSpeed);
+    }
+
+    document.addEventListener('DOMContentLoaded', type);
+    </script>
+    </body>
+</html>
