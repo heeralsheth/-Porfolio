@@ -39,5 +39,7 @@ const words = ["Data-driven developer", "Spring Boot specialist", "Data Analyst"
     setTimeout(type, typeSpeed);
 }
 
+ 
+
 // Initialize the effect
 document.addEventListener('DOMContentLoaded', type);
