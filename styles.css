@@ -1,234 +1,368 @@
 :root {
     --primary: #1977cc;
-    --accent: #38bdf8;
     --dark: #0f172a;
-    --card: #1e293b;
-    --text: #f8fafc;
-    --muted: #b0c4de;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --light: #f8fafc;
+    --accent: #38bdf8;
 }
 
 body {
-    font-family: "Segoe UI", sans-serif;
-    background: var(--dark);
-    color: var(--text);
-    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--dark);
+    color: var(--light);
 }
 
-/* NAVBAR */
-
+/* 1. NAVIGATION */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
+    background-color: --dark; /* (0, 53, 84, 0.95); Midnight Blue with slight transparency */
     position: sticky;
     top: 0;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
     z-index: 1000;
+    backdrop-filter: blur(10px); /* Modern blur effect */
+    border-bottom: 1px solid  ;
 }
 
-.logo {
-    font-size: 1.7rem;
-    font-weight: bold;
+nav .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
-.logo span {
-    color: var(--accent);
+nav .logo span {
+    color: --accent; /* Electric Blue Accent */
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 25px;
+
 }
 
-nav a {
-    color: white;
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #ffffff;
     text-decoration: none;
-    transition: 0.3s;
+    font-weight: 500;
 }
 
-nav a:hover {
-    color: var(--accent);
+nav ul li a:hover {
+    /*color: #38bdf8;*/
+    color: #1977cc;
 }
 
-/* HERO */
+/* Forces the container to display cards in columns */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Fixes broken images from stretching out the cards */
+.project-img-wrapper {
+    width: 100%;
+    height: 200px;
+    background: #1e293b; /* Fallback color while your images are loading */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents the image from squishing */
+}
+
+/* Base card styling to give it that separate dashboard component look */
+.project-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 #hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 80px 10%;
-    background:
-        linear-gradient(
-            135deg,
-            #0f172a,
-            #1e293b
-        );
+    background: linear-gradient(45deg, #0f172a 30%, #1e293b 100%);
 }
-
-.hero-container img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--accent);
-    margin-bottom: 30px;
+img[src="profile.png"] {
+    width: 180px;               /* Defines the size */
+    height: 180px;              /* Keeps it a perfect square */
+    border-radius: 50%;         /* Makes it round */
+    object-fit: cover;          /* Prevents the photo from being squished */
+    border: 5px solid #38bdf8;  /* Optional: Adds a professional accent color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle lift */
+    display: block;
+    margin: 20px auto;          /* Centers the image with some spacing */
 }
-
 .hero-container h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 #typewriter {
     color: var(--accent);
-    border-right: 3px solid var(--accent);
+    border-right: 3px solid #38bdf8;
+}
+
+.btn-get-started {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-get-started:hover {
+    background: #1977cc;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 10px;
+    border-bottom: 4px solid var(--primary);
+
+    background: rgba(255, 255, 255, 0.05); /* Subtle dark theme card */
+    border: 1px solid #1a3a5a; /* Healthcare blue border */
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+/* Matching the Medilab Blue for your name/role highlights */
+.logo span,
+#hero h1 span,
+#hero p span {
+    color: #1977cc; /* The signature Medilab Blue */
+    font-weight: 700;
+
+    line-height: 1.1;    /* Adjusts the gap between the two lines of text */
+    margin-bottom: 20px; /* Adjusts the gap between the text and the "View My Work" button */
+    max-width: 800px;    /* Optional: ensures the text stays on two lines for better symmetry */
+    margin-left: auto;
+    margin-right: auto;
+}
+#hero h3 {
+    color: #444444;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+/* Enhancing the Download Button to match Medilab's 'Appointment' style */
+.appointment-btn {
+    margin-left: 25px;
+    background: #1977cc;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.appointment-btn:hover {
+    background: #166ab5;
+    color: #fff;
+
+}
+/* Color Palette: Beautiful Blues
+   Background: #001B2E | Nav: #003554 | Cards: #006494 | Accent: #00A6FB
+*/
+
+
+/* 2. HERO SECTION & TYPEWRITER */
+#home {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: #00A6FB;
 }
 
 .hero-description {
     max-width: 700px;
-    margin: auto;
-    color: var(--muted);
     font-size: 1.1rem;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
+    color: #b0c4de;
 }
 
-/* BUTTON */
-
-.btn {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 14px 32px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.3s;
+.typing {
+    color: #00A6FB;
+    font-weight: 700;
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    background: var(--accent);
-}
-
-/* SECTION */
-
+/* 3. TECHNICAL TOOLKIT (CARD GRID) */
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
-}
-
-.section-title span {
-    color: var(--accent);
-}
-
-/* TOOLKIT */
-
-#skill {
-    padding: 100px 10%;
+    margin: 60px 0 40px;
 }
 
 .toolkit-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    padding: 0 10% 80px;
 }
 
 .toolkit-card {
-    background: var(--card);
-    padding: 30px;
-    border-radius: 16px;
-    transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(0, 100, 148, 0.15);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #006494;
+    transition: all 0.4s ease;
+    text-align: left;
+    border-bottom: 4px solid transparent;
 }
 
 .toolkit-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-}
-
-.card-icon {
-    font-size: 2rem;
-    color: var(--accent);
-    margin-bottom: 20px;
+    transform: translateY(-10px);
+    background: rgba(0, 100, 148, 0.3);
+    border-bottom: 4px solid #00A6FB;
+    box-shadow: 0 10px 30px rgba(0, 166, 251, 0.2);
 }
 
 .toolkit-card h3 {
+    color: #fff;
     margin-bottom: 15px;
+    font-size: 1.4rem;
 }
 
 .toolkit-card p {
-    color: var(--muted);
+    color: #b0c4de;
+    font-size: 0.95rem;
 }
 
-/* CONTACT */
-
-#contact {
-    text-align: center;
-    padding: 100px 10%;
+/* 4. BUTTONS */
+.btn {
+    display: inline-block;
+    margin-left: 25px;
+    background: --accent;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 166, 251, 0.3);
 }
 
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 166, 251, 0.5);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Consider adding a burger menu later */
+}
 .contact-desc {
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto 30px;
-    color: var(--muted);
+    color: #b0c4de; /* Softer blue-grey for readability */
+    font-size: 1.1rem;
+    text-align: center;
+
+}
+/* --- Center the Say Hello Button --- */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the button and text horizontally */
+    text-align: center;  /* Centers the paragraph text */
+    padding: 80px 10%;
 }
 
-/* FOOTER */
+#contact .btn {
+    margin: 20px auto 0; /* Ensures the button has space and stays centered */
 
+}
+/**/
+/* Target the container wrapping the button */
+/*.contact-container-selector {*/
+/*    display: flex;*/
+/*    flex-direction: column; !* Keeps text and button stacked *!*/
+/*    align-items: center;    !* Centers everything horizontally *!*/
+/*    text-align: center;     !* Ensures the text inside stays centered too *!*/
+/*}*/
+
+/* If the button is an <a> tag, ensure it doesn't stretch */
+.say-hello-button-class {
+    display: inline-block;
+    width: fit-content;
+}
+/* --- Center the Footer Content --- */
 footer {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 40px 10%;
-    text-align: center;
+    background: #0f172a ;
+    padding: 40px 0;
+    border-top: 1px solid #006494;
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center;    /* Centers content vertically */
+    width: 100%;
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: column; /* Stacks text and social icons vertically */
+    align-items: center;    /* Centers the stack */
+    gap: 15px;              /* Space between text and icons */
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Space between the LinkedIn/GitHub icons */
 }
 
 .social-links a {
-    color: white;
-    font-size: 1.4rem;
+    color: #fff;
+    font-size: 1.5rem;
     transition: 0.3s;
 }
 
 .social-links a:hover {
-    color: var(--accent);
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero-container h1 {
-        font-size: 2.4rem;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    color: #00A6FB;
+    transform: translateY(-3px);
 }
