@@ -39,7 +39,11 @@ const words = ["Data-driven developer", "Spring Boot specialist", "Data Analyst"
     setTimeout(type, typeSpeed);
 }
 
- 
+ // Example logic check
+if (charIndex === currentWord.length) {
+    // Pause at the end of the word, then start deleting
+    setTimeout(() => isDeleting = true, 2000);
+}
 
 // Initialize the effect
 document.addEventListener('DOMContentLoaded', type);
