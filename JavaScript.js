@@ -1,4 +1,5 @@
-const textElement = document.getElementById('typewriter');
+
+const typewriterElement = document.querySelector('#typewriter');
 const phrases = [
     "Java Developer.",
     "Data Analyst.",
@@ -15,7 +16,7 @@ let typeSpeed = 150;
 
 function type() {
     const currentPhrase = phrases[phraseIndex];
-
+const words = ["Data-driven developer", "Spring Boot specialist", "Data Analyst"];
     if (isDeleting) {
         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
